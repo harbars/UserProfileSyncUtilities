@@ -10,7 +10,7 @@ $replicationPermissionName = "Replicating Directory Changes"
 
 
 
-function Check-ADUserPermission(
+function Test-ADUserPermission(
     [System.DirectoryServices.DirectoryEntry]$entry, 
     [string]$user, 
     [string]$permission)
@@ -19,13 +19,13 @@ function Check-ADUserPermission(
     $ext = [ADSI]("LDAP://CN=Extended-Rights," + $dse.ConfigurationNamingContext)
 
     $right = $ext.psbase.Children | 
-        ? { $_.DisplayName -eq $permission }
+        Where-Object { $_.DisplayName -eq $permission }
     
     if($right -ne $null)
     {
         $perms = $entry.psbase.ObjectSecurity.Access |
-            ? { $_.IdentityReference -eq $user } |
-            ? { $_.ObjectType -eq [GUID]$right.RightsGuid.Value }
+            Where-Object { $_.IdentityReference -eq $user } |
+            Where-Object { $_.ObjectType -eq [GUID]$right.RightsGuid.Value }
 
         return ($perms -ne $null)
     }
@@ -49,7 +49,7 @@ $entries = @(
 Write-Host "User '$userName': "
 foreach($entry in $entries)
 {
-    $result = Check-ADUserPermission $entry $userName $replicationPermissionName
+    $result = Test-ADUserPermission $entry $userName $replicationPermissionName
     
     if($result)
     {
