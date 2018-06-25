@@ -3,7 +3,7 @@
 #>
 Start-Service "FIMSynchronizationService"
 
-$WorkingPath = "c:\SP16MIMBase"                           # Path to the MA files and Module
+$WorkingPath = "c:\_scripts\UserProfileSyncUtilities"                           # Path to the MA files and Module
 $CentralAdminUrl = "https://spca.fabrikam.com"            # Url of Central Administration
 $ForestDnsName = "fabrikam.com"                           # DNS name of the Forest
 $AdMaAccountName = "FABRIKAM\sppsync"                     # AD MA Account Name (needs dirsync rights)
