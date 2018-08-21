@@ -18,7 +18,6 @@ $SpMaAccountDescription = "MIM SP MA Account"
 
 $WebApp = Get-SPWebApplication -Identity $WebAppUrl
 
-
 $policyRole = $WebApp.PolicyRoles.Add($PolicyRoleName, $PolicyRoleDescription)
 $policyRole.GrantRightsMask = $GrantRightsMask
 $policy = $WebApp.Policies.Add($SpMaAccount, $SpMaAccountDescription)
