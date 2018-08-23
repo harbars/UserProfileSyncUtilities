@@ -5,7 +5,7 @@ If ((Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0) -eq $null) { Ad
 
 $Account = "FABRIKAM\administrator"
 $UpaProxyName = "User Profile Service Application Proxy"
-$UpaProxy = get-spserviceapplicationproxy  | Where-Object {$_.Name -eq $UpaProxyName}
+$UpaProxy = Get-SPServiceApplicationProxy  | Where-Object {$_.Name -eq $UpaProxyName}
 
 Add-SPProfileLeader $UpaProxy $Account
 
