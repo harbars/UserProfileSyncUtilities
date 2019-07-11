@@ -2,7 +2,7 @@
     Adds a user to Farm Administrators, and outputs the resulting Farm Administrators.
 
     The account which runs the SharePoint MA must be a farm administrator in order to connect to Central Administration
-    TEST
+    TEST AGAIN
 #>
 If ((Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0) -eq $null) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
 
