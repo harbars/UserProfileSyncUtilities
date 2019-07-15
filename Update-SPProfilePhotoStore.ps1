@@ -4,7 +4,7 @@
     Should be scheduled to run on a machine in the farm hosting the User Profiles service instance
     If run on a machine not hosting that service, it will complete successfully, doing nothing.
 #>
-If ((Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0) -eq $null) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
+If ($null -ne (Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0)) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
 
 
 $MySiteHost = "https://onedrive.fabrikam.com"

@@ -3,7 +3,7 @@
 
     Demo Workpad
 #>
-If ((Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0) -eq $null) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
+If ($null -eq (Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0)) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
 
 # noIlmUsed 
 # True means Active Directory Import (ADI) - we are not using "ilm" - i.e. User Profile Sync

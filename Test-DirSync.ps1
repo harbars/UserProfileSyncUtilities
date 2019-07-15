@@ -21,13 +21,13 @@ function Test-ADUserPermission(
     $right = $ext.psbase.Children | 
         Where-Object { $_.DisplayName -eq $permission }
     
-    if($right -ne $null)
+    if($null -ne $right)
     {
         $perms = $entry.psbase.ObjectSecurity.Access |
             Where-Object { $_.IdentityReference -eq $user } |
             Where-Object { $_.ObjectType -eq [GUID]$right.RightsGuid.Value }
 
-        return ($perms -ne $null)
+        return ($null -ne $perms)
     }
     else
     {

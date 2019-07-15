@@ -3,7 +3,7 @@
 
     The account which runs the SharePoint MA must be a farm administrator in order to connect to Central Administration
 #>
-If ((Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0) -eq $null) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
+If ($null -eq (Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0)) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
 
 $FarmAdmin = "FABRIKAM\spma"
 

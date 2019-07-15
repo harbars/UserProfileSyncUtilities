@@ -6,7 +6,7 @@
 
     http://www.harbar.net/archive/2018/02/02/Using-PowerShell-to-import-Profile-Photos-when-using-Active-Directory.aspx
 #>
-If ((Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0) -eq $null) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
+If ($null -eq (Get-PSSnapin -Name "Microsoft.SharePoint.PowerShell" -EA 0)) { Add-PSSnapin -Name "Microsoft.SharePoint.PowerShell" }
 
 
 $WebAppUrl = "https://onedrive.fabrikam.com"
